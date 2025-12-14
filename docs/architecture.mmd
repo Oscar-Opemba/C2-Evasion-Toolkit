@@ -1,0 +1,24 @@
+graph TD
+    subgraph Red Team Operator
+        A[GoLang Payload Generator] --> B(C# Implant Source Code)
+        B --> C{Obfuscation & Polymorphism}
+        C --> D[Evasive Implant Binary (implant.exe)]
+    end
+
+    subgraph Target Network
+        D --> E[Target Endpoint]
+        E --> F{In-Memory Execution}
+        F --> G[API Hashing & EDR Bypass]
+        G --> H[Domain Fronting Communication]
+    end
+
+    subgraph Internet Infrastructure
+        H --> I[CDN/CloudFront (Front Domain)]
+        I -- Host Header: c2.redteam-op.com --> J[Actual C2 Server]
+        J --> K[C2 Framework (e.g., Cobalt Strike)]
+    end
+
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style D fill:#ccf,stroke:#333,stroke-width:2px
+    style G fill:#afa,stroke:#333,stroke-width:2px
+    style J fill:#fcc,stroke:#333,stroke-width:2px
